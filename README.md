@@ -1,16 +1,16 @@
-# lifemanager
+# Mess Manager
 
-A new Flutter project.
+An application that helps organize all the things you might have at home. Now, using this application, you can add items that you are always looking for. Can’t remember where you put the spare keys to your car or its service book? Can’t remember where you put the batteries for the remote control? There are as many examples as there are users.
+Use cases: Family members use this application and have more time for themselves because they don’t have to search for things.
 
-## Getting Started
+Development: The application is constantly being developed and currently runs on the local resources of the phone.
 
-This project is a starting point for a Flutter application.
+The plans include:
 
-A few resources to get you started if this is your first Flutter project:
+*cloud synchronization
+*creating backups
+*improved system for adding items
+*specifying items quantities and deficits.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Done:
+\*second image
