@@ -16,23 +16,25 @@ class ImageInput extends StatefulWidget {
 
 class _ImageInputState extends State<ImageInput> {
   File _storedImage;
+  File imageFile;
 
-  Future<void> _takePicture() async {
-    
-    final imageFile = await ImagePicker.pickImage(
-      source: ImageSource.camera,
-      maxWidth: 600,
-    );
+  Future<File> _takePicture(ImageSource source) async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile image = await _picker.pickImage(source: source);
+    final File imageFile = File(image.path);
+
     if (imageFile == null) {
-      return;
+      return null;
     }
     setState(() {
       _storedImage = imageFile;
     });
+
     final appDir = await syspaths.getApplicationDocumentsDirectory();
     final fileName = path.basename(imageFile.path);
     final savedImage = await imageFile.copy('${appDir.path}/$fileName');
     widget.onSelectImage(savedImage);
+    return imageFile;
   }
 
   @override
@@ -60,13 +62,25 @@ class _ImageInputState extends State<ImageInput> {
         SizedBox(
           width: 10,
         ),
-        Expanded(
-          child: TextButton.icon(
-            icon: Icon(Icons.camera),
-            label: Text('Take Picture'),
-            // textColor: Theme.of(context).primaryColor,
-            onPressed: _takePicture,
-          ),
+        Column(
+          children: [
+            SizedBox(
+              child: TextButton.icon(
+                icon: Icon(Icons.camera),
+                label: Text('Take Picture'),
+                // textColor: Theme.of(context).primaryColor,
+                onPressed: () => _takePicture(ImageSource.camera),
+              ),
+            ),
+            SizedBox(
+              child: TextButton.icon(
+                icon: Icon(Icons.photo_library_sharp),
+                label: Text('From gallery'),
+                // textColor: Theme.of(context).primaryColor,
+                onPressed: () => _takePicture(ImageSource.gallery),
+              ),
+            ),
+          ],
         ),
       ],
     );

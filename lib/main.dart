@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider.value(
       value: YourItems(),
       child: MaterialApp(
-          title: 'Life manager',
+          title: 'Messmanager',
           theme: ThemeData(
             primarySwatch: Colors.indigo,
             accentColor: Colors.amber,

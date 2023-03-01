@@ -36,7 +36,7 @@ class _ItemsListScreenState extends State<ItemsListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Life manager'),
+        title: Text('Mess Manager'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
